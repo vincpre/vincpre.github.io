@@ -1,5 +1,5 @@
 # MongoDB 3.6
-see (https://docs.mongodb.com/manual/sharding/#sharded-cluster) to understand the Sharded Cluster concept
+see (https://docs.mongodb.com/v3.6/sharding/#sharded-cluster) to understand the Sharded Cluster concept
 
 ## start a mongodb cluster with docker
  - shard1: the node #1

@@ -1,5 +1,5 @@
 # MongoDB 3.6
-start a single mongodb node with docker, see (https://docs.mongodb.com/manual/introduction/)
+start a single mongodb node with docker, see (https://docs.mongodb.com/v3.6/introduction)
 
 ## Installation
  1. git clone https://github.com/vincpre/vincpre.github.io.git
