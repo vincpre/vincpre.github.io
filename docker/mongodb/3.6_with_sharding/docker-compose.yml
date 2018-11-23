@@ -2,7 +2,6 @@ version: '3'
 services:
   shard1:
     image: mongo:3.6
-    container_name: shard1
     hostname: shard1
     command: mongod --shardsvr --replSet shard1 --port 27017 --bind_ip_all
     expose:
@@ -13,7 +12,6 @@ services:
 
   shard2:
     image: mongo:3.6
-    container_name: shard2
     hostname: shard2
     command: mongod --shardsvr --replSet shard2 --port 27017 --bind_ip_all
     expose:
@@ -25,7 +23,6 @@ services:
   mongocfg:
     image: mongo:3.6
     restart: always
-    container_name: mongocfg
     hostname: mongocfg
     command: mongod --configsvr --port 27019 --replSet cfg --bind_ip_all
     expose:
@@ -40,7 +37,6 @@ services:
   database:
     image: mongo:3.6
     restart: always
-    container_name: mongos
     command: mongos --configdb cfg/mongocfg:27019 --port 27017 --bind_ip_all
     ports:
       - "27017:27017"
