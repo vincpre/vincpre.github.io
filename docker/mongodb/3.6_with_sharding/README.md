@@ -15,7 +15,7 @@ see (https://docs.mongodb.com/v3.6/sharding/#sharded-cluster) to understand the 
  5. enjoy !
 
 ## Next
- 1. use mydb;
- 2. sh.enableSharding("mydb");
- 3. db.myCollection.createIndex( { _id: "hashed" } )
- 4. sh.shardCollection("mydb.myCollection", {_id:"hashed"});
+ * use mydb;
+ * sh.enableSharding("mydb");
+ * db.myCollection.createIndex( { _id: "hashed" } )
+ * sh.shardCollection("mydb.myCollection", {_id:"hashed"});
