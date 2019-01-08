@@ -6,9 +6,9 @@ services:
     command: mongod --shardsvr --replSet shard1 --port 27017 --bind_ip_all
     expose:
       - "27017"
-    entrypoint: /scripts/shard1.sh
+    #entrypoint: /scripts/shard.sh
     volumes:
-       - ./scripts:/scripts
+       - .:/scripts
 
   shard2:
     image: mongo:3.6
@@ -16,9 +16,9 @@ services:
     command: mongod --shardsvr --replSet shard2 --port 27017 --bind_ip_all
     expose:
       - "27017"
-    entrypoint: /scripts/shard2.sh
+    entrypoint: /scripts/shard.sh
     volumes:
-       - ./scripts:/scripts
+      - ./scripts:/scripts
 
   mongocfg:
     image: mongo:3.6
@@ -28,11 +28,11 @@ services:
     expose:
       - "27019"
     entrypoint: /scripts/mongocfg.sh
-    volumes:
-       - ./scripts:/scripts
     links:
       - shard1
       - shard2
+    volumes:
+      - ./scripts:/scripts
 
   database:
     image: mongo:3.6
@@ -43,5 +43,7 @@ services:
     links:
       - mongocfg
     entrypoint: /scripts/mongos.sh
-    volumes:
-       - ./scripts:/scripts
+
+
+#volumes:
+#    - ./scripts:/scripts
