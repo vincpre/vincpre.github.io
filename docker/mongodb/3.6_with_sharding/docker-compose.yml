@@ -1,24 +1,26 @@
 version: '3'
 services:
   shard1:
+    restart: always
     image: mongo:3.6
     hostname: shard1
     command: mongod --shardsvr --replSet shard1 --port 27017 --bind_ip_all
     expose:
       - "27017"
-    #entrypoint: /scripts/shard.sh
     volumes:
-       - .:/scripts
+       - ./scripts:/scripts
+    entrypoint: /scripts/shard.sh
 
   shard2:
+    restart: always
     image: mongo:3.6
     hostname: shard2
     command: mongod --shardsvr --replSet shard2 --port 27017 --bind_ip_all
     expose:
       - "27017"
-    entrypoint: /scripts/shard.sh
     volumes:
-      - ./scripts:/scripts
+       - ./scripts:/scripts
+    entrypoint: /scripts/shard.sh
 
   mongocfg:
     image: mongo:3.6
@@ -43,7 +45,5 @@ services:
     links:
       - mongocfg
     entrypoint: /scripts/mongos.sh
-
-
-#volumes:
-#    - ./scripts:/scripts
+    volumes:
+      - ./scripts:/scripts

@@ -3,7 +3,7 @@ su - mongodb -c "mongod --shardsvr --replSet $(hostname) --port 27017 --bind_ip_
 echo "init shard $(hostname)"
 mongo <<EOF
 rs.initiate({
-  _id: "${hostname}",
+  _id: "$(hostname)",
   members: [{ _id: 0, host: "$(hostname):27017" }]
 });
 sleep(2000)
