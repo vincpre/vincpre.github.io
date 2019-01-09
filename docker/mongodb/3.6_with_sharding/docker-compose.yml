@@ -10,6 +10,8 @@ services:
     volumes:
        - ./scripts:/scripts
     entrypoint: /scripts/shard.sh
+    networks:
+      - default
 
   shard2:
     restart: always
@@ -21,6 +23,8 @@ services:
     volumes:
        - ./scripts:/scripts
     entrypoint: /scripts/shard.sh
+    networks:
+      - default
 
   mongocfg:
     image: mongo:3.6
@@ -30,11 +34,10 @@ services:
     expose:
       - "27019"
     entrypoint: /scripts/mongocfg.sh
-    links:
-      - shard1
-      - shard2
     volumes:
       - ./scripts:/scripts
+    networks:
+      - default
 
   database:
     image: mongo:3.6
@@ -42,8 +45,11 @@ services:
     command: mongos --configdb cfg/mongocfg:27019 --port 27017 --bind_ip_all
     ports:
       - "27017:27017"
-    links:
-      - mongocfg
     entrypoint: /scripts/mongos.sh
     volumes:
       - ./scripts:/scripts
+    networks:
+      - default
+
+networks:
+  default:
