@@ -42,6 +42,7 @@ services:
   database:
     image: mongo:3.6
     restart: always
+    hostname: database
     command: mongos --configdb cfg/mongocfg:27019 --port 27017 --bind_ip_all
     ports:
       - "27017:27017"

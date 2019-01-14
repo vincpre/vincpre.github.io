@@ -1,0 +1,32 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\apps\Yarn\bin\yarn.js copy --help
+
+PATH: 
+  C:\apps\Git\mingw64\bin;C:\apps\Git\usr\bin;C:\Users\vpre294\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Sennheiser\SoftphoneSDK;C:\apps\Oracle\Oracle_client_11_2;C:\apps\TortoiseSVN\bin;C:\Program Files\nodejs;C:\apps\Yarn\bin;C:\Users\vpre294\AppData\Local\Microsoft\WindowsApps;C:\Users\vpre294\AppData\Local\atom\bin;C:\Users\vpre294\AppData\Roaming\npm;C:\apps\Git\cmd;C:\Users\vpre294\AppData\Local\Yarn\bin;C:\Users\vpre294\AppData\Local\Microsoft\WindowsApps;C:\apps\Microsoft VS Code\bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.4.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "D:\\Users\\vpre294\\Documents\\git\\vincpre\\docker\\mongodb\\3.6_with_sharding"
+      at new MessageError (C:\apps\Yarn\lib\cli.js:186:110)
+      at C:\apps\Yarn\lib\cli.js:40048:15
+      at Generator.next (<anonymous>)
+      at step (C:\apps\Yarn\lib\cli.js:98:30)
+      at C:\apps\Yarn\lib\cli.js:109:13
+      at <anonymous>
