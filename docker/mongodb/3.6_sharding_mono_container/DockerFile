@@ -1,0 +1,7 @@
+FROM mongo:3.6
+COPY ./docker-entrypoint.sh /
+COPY ./scripts /scripts
+USER mongodb
+EXPOSE 27017
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["mongos", "--configdb", "config/localhost:27000","--port", "27017","--bind_ip_all"]
