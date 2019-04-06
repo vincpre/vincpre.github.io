@@ -1,0 +1,41 @@
+Arguments: 
+  C:\Users\mesParents\Documents\node-v10.15.3-win-x64\node.exe C:\Users\mesParents\Documents\node-v10.15.3-win-x64\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  D:\Program Files\Git\mingw64\bin;D:\Program Files\Git\usr\bin;C:\Users\mesParents\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Users\mesParents\AppData\Local\Microsoft\WindowsApps;C:\Users\mesParents\Documents\node-v10.15.3-win-x64;C:\Users\mesParents\Documents\VSCode\bin;C:\Users\mesParents\Documents\VSCode
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\mesParents\Documents\git\vincpre.github.io\speech\package.json: Unexpected token , in JSON at position 141
+      at JSON.parse (<anonymous>)
+      at C:\Users\mesParents\Documents\node-v10.15.3-win-x64\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\mesParents\Documents\node-v10.15.3-win-x64\node_modules\yarn\lib\cli.js:304:30)
+      at C:\Users\mesParents\Documents\node-v10.15.3-win-x64\node_modules\yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "speech",
+    "version": "1.0.0",
+    "description": "speech test",
+    "main": "index.js",
+    "author": "vincpre",
+    "license": "MIT"
+  },
+  "dependencies": {
+    "speech-to-text": "^2.9.1"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

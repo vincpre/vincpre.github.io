@@ -1,0 +1,11 @@
+{
+  "name": "speech",
+  "version": "1.0.0",
+  "description": "speech test",
+  "main": "index.js",
+  "author": "vincpre",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
