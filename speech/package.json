@@ -6,6 +6,7 @@
   "author": "vincpre",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "watson-developer-cloud": "4.0.1"
   }
 }
