@@ -6,20 +6,18 @@ const fs = require('fs');
 const client = new speech.SpeechClient();
 
 // The name of the audio file to transcribe
-const fileName = './resources/brooklyn.flac';
-
-// Reads a local audio file and converts it to base64
-const file = fs.readFileSync(fileName);
-const audioBytes = file.toString('base64');
+const fileName = './resources/radio.flac';
 
 // The audio file's encoding, sample rate in hertz, and BCP-47 language code
 const audio = {
-  content: audioBytes,
+  content: fs.readFileSync(fileName).toString('base64'),
 };
+
 const config = {
+  audioChannelCount: 2,
   encoding: 'FLAC',
-  sampleRateHertz: 16000,
-  languageCode: 'en-US',
+  sampleRateHertz: 44100,
+  languageCode: 'fr-FR'
 };
 const request = {
   audio: audio,

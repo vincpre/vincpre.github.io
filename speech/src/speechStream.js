@@ -9,13 +9,13 @@ const url = "http://direct.franceinter.fr/live/franceinter-lofi.mp3";
 /**
  * TODO(developer): Uncomment the following lines before running the sample.
  */
-const encoding = 'MPEG';
+const encoding = 'MPGA';
 const sampleRateHertz = 24000;
 const languageCode = 'fr-FR';
 
 const options = { config:
   { encoding: 1,
-    sampleRateHertz: 30000,
+    sampleRateHertz,
     languageCode: 'fr-FR',
     maxAlternatives: 0,
     profanityFilter: true },
