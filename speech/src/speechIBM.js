@@ -1,17 +1,17 @@
 const SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
 
 const speechToText = new SpeechToTextV1({
-  iam_apikey: 'xxxx',
-  url: 'zzz'
+  iam_apikey: 'xxx',
+  url: 'yyyy'
 });
 const fs = require('fs');
 
 const params = {
-  objectMode: true,
-  content_type: 'audio/flac',
-  model: 'en-US_BroadbandModel',
-  keywords: ['colorado', 'tornado', 'tornadoes'],
-  keywords_threshold: 0.5,
+  objectMode: false,
+  content_type: 'audio/mpeg',
+  model: 'fr-FR_BroadbandModel',
+  // keywords: ['colorado', 'tornado', 'tornadoes'],
+  // keywords_threshold: 0.5,
   max_alternatives: 3
 };
 
@@ -37,7 +37,7 @@ fs.createReadStream('./resources/radio.mp3').pipe(recognizeStream);
  * WHEN USED ALONE, the following line produces just the final transcript
  * on the console.
  */
-// recognizeStream.setEncoding('utf8');
+recognizeStream.setEncoding('utf8');
 
 // Listen for events.
 recognizeStream.on('data', function(event) { onEvent('Data:', event); });
