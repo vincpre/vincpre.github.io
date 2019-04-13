@@ -1,42 +1,43 @@
 // Imports the Google Cloud client library
 const speech = require('@google-cloud/speech');
+const fs = require('fs');
+const base64 = require('base64-stream').Base64Decode;
 
 // Creates a client
 const client = new speech.SpeechClient();
-const request = require('request');
-const url = "http://direct.franceinter.fr/live/franceinter-lofi.mp3";
 
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-const encoding = 'MPGA';
-const sampleRateHertz = 24000;
-const languageCode = 'fr-FR';
-
-const options = { config:
-  { encoding: 1,
-    sampleRateHertz,
-    languageCode: 'fr-FR',
-    maxAlternatives: 0,
-    profanityFilter: true },
- singleUtterance: true,
- InterimResults: true 
+const config = {
+  audioChannelCount: 2,
+  encoding: 'WAV',
+  sampleRateHertz: 44100,
+  languageCode: 'fr-FR'
 };
 
-// Create a recognize stream
-const recognizeStream = client
-  .streamingRecognize(options)
-  .on('error', console.error)
-  .on('data', function (data) {
-    console.log(data.results.length);
-    return process.stdout.write(
-      data.results[0] && data.results[0].alternatives[0]
-        ? `Transcription: ${data.results[0].alternatives[0].transcript}\n`
-        : `\n\nReached transcription time limit, press Ctrl+C\n`
-    ) 
-  }
-  );
+const fileName = './resources/radio.wav';
+const readStream = fs.createReadStream(fileName);
 
-request(url).pipe(recognizeStream);
-
-console.log('Listening, press Ctrl+C to stop.');
+// Handle stream events --> data, end,
+readStream
+  .pipe(new base64())
+  .on('data', function (chunk) {
+    // console.log(chunk.length);
+    const request = {
+      audio: {content: chunk},
+      config: config,
+    };
+    client
+    .recognize(request)
+    .then(data => {
+      const response = data[0];
+      const transcription = response.results
+        .map(result => result.alternatives[0].transcript)
+        .join('\n');
+      console.log(`Transcription: ${transcription}`);
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    });
+  })
+  .on('end', function () {
+    console.log("fin");
+  });
