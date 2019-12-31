@@ -39,7 +39,7 @@ function eventDoc(server, doc) {
 
 async function load(server) {
   // stream the file content
-  const readStream = fs.createReadStream(path.resolve(__dirname, "./siret.json"), { encoding: "utf8" });
+  const readStream = fs.createReadStream(path.resolve(__dirname, "../../../data/siret.json"), { encoding: "utf8" });
   await new Promise((resolve, reject) => {
     readStream
       // retreive all JSON documents include in the array

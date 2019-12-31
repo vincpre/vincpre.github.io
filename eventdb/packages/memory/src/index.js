@@ -29,7 +29,7 @@ function eventDoc(server, doc) {
 }
 
 async function load(server) {
-  const readStream = fs.createReadStream(path.resolve(__dirname, "./siret.json"), { encoding: "utf8" });
+  const readStream = fs.createReadStream(path.resolve(__dirname, "../../../data/siret.json"), { encoding: "utf8" });
   await new Promise((resolve, reject) => {
     readStream
       .pipe(JSONStream.parse("*"))
