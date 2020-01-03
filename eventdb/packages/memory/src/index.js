@@ -61,7 +61,7 @@ async function run() {
   answers = 0;
   // eslint-disable-next-line quotes
   db.emit("db", {
-    etablissementSiege: true
+    etablissementSiege: false
   }, client);
   console.log(answers);
   timer.stop("request1");
