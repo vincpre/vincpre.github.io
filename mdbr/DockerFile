@@ -1,0 +1,7 @@
+FROM mongo:4.0
+USER mongodb
+COPY ./docker-entrypoint.sh /
+COPY ./scripts/*.* /scripts/
+VOLUME /data/db
+ENTRYPOINT ["/docker-entrypoint.sh"]
+ENV TERM=xterm

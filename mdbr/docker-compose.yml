@@ -1,0 +1,14 @@
+version: '2.3'
+services:
+  mdbr:
+    image: nexus3.prod.svc.darva.prive:5000/transverse/mdbr:0.0.1
+    volumes:
+      - ./data:/data/db
+    networks:
+      - default
+
+volumes:
+  mdbr:
+
+networks:
+  default:
