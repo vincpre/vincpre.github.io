@@ -8,7 +8,7 @@ services:
       # host:container port mapping. If you want MongoDB Charts to be
       # reachable on a different port on the docker host, change this
       # to <port>:80, e.g. 8888:80.
-      - 80:80
+      - 8081:80
       - 443:443
     volumes:
       - keys:/mongodb-charts/volumes/keys
@@ -31,10 +31,11 @@ services:
       # should be considered trusted self-signed or root certificates when
       # Charts is accessing MongoDB servers with ?ssl=true
       SSL_CERT_DIR: /mongodb-charts/volumes/db-certs
+      CHARTS_MONGODB_URI: mongodb://host.docker.internal
     networks:
       - backend
-    secrets:
-      - charts-mongodb-uri
+    #secrets:
+    #  - charts-mongodb-uri
 
 networks:
   backend:
@@ -44,7 +45,3 @@ volumes:
   logs:
   db-certs:
   web-certs:
-
-secrets:
-  charts-mongodb-uri:
-    external: true
