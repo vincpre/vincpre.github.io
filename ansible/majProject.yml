@@ -1,0 +1,65 @@
+- hosts: client
+  become: yes
+
+  tasks:
+
+    # Configuration de l'agent mongodb
+    - name: "Changement du group id"
+      replace:
+        dest: /apps/mongodb/mms-automation-agent/conf/mms-automation-agent.conf
+        regexp: '^mmsGroupId=(.*)$'
+        replace: "mmsGroupId={{ gpid }}"
+        #backup: yes
+
+    - name: "Changement de l'api key" 
+      replace:
+        dest: /apps/mongodb/mms-automation-agent/conf/mms-automation-agent.conf
+        regexp: '^mmsApiKey=(.*)$'
+        replace: "mmsApiKey={{ apikey }}"
+        #backup: yes
+
+    - name: "Changement de l'url"
+      replace:
+        dest: /apps/mongodb/mms-automation-agent/conf/mms-automation-agent.conf
+        regexp: '^mmsBaseUrl=(.*)$'
+        replace: "mmsBaseUrl=https://mongodb-mms.prod.svc.darva.prive"
+
+    - name: "Maj certificat"
+      replace:
+        dest: /apps/mongodb/mms-automation-agent/conf/mms-automation-agent.conf
+        regexp: '^#sslTrustedMMSServerCertificate=(.*)$'
+        replace: "sslTrustedMMSServerCertificate=/apps/mongodb/mms-automation-agent/conf/prod-svc-darva-prive-chain.pem"
+
+    # Arret du processus automation agent
+    - name: Get process
+      shell: "ps -fu mongodb|grep mongodb-mms-automation| awk '{print $2}'"
+      register: _process
+
+    - name: Kill running processes
+      shell: "kill -9 {{ item }}"
+      with_items: "{{ _process.stdout_lines }}"
+
+    - name: waiting end of process
+      wait_for:
+        path: "/proc/{{ item }}/status"
+        state: absent
+      ignore_errors: yes
+      register: killed_process
+      with_items: "{{ _process.stdout_lines }}"
+
+    # Configuration systemd
+    - name: "Changement version agent"
+      replace:
+        dest: /usr/lib/systemd/system/mongodb-mms-automation-agent.service
+        regexp: '^ExecStart=(.*)$'
+        replace: "ExecStart=/apps/mongodb/mms-automation-agent/bin/mongodb-mms-automation-agent-10.2.20.5992 -f /apps/mongodb/mms-automation-agent/conf/mms-automation-agent.conf"
+
+    - name: prise en compte maj service
+      shell: "systemctl daemon-reload"
+
+    # Demarrage de l'agent
+    - name: "Demarrage du service"
+      service:
+        name: mongodb-mms-automation-agent
+        state: started
+
