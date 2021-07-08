@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pion 1er déplacement en Y de 1 case 1`] = `
+Pion {
+  "coordonnees": Point {
+    "x": 1,
+    "y": 3,
+  },
+  "couleur": "blanc",
+  "deplacements": Array [
+    Point {
+      "x": 0,
+      "y": 1,
+    },
+  ],
+  "nom": "Pion",
+  "nombreDeCoupJoue": 1,
+  "prises": Array [
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+  ],
+}
+`;
+
+exports[`Pion 1er déplacement en Y de 2 cases 1`] = `
+Pion {
+  "coordonnees": Point {
+    "x": 1,
+    "y": 4,
+  },
+  "couleur": "blanc",
+  "deplacements": Array [
+    Point {
+      "x": 0,
+      "y": 1,
+    },
+  ],
+  "nom": "Pion",
+  "nombreDeCoupJoue": 1,
+  "prises": Array [
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+  ],
+}
+`;
+
+exports[`Pion 1er déplacement en Y de 3 cases 1`] = `
+Pion {
+  "coordonnees": Point {
+    "x": 1,
+    "y": 2,
+  },
+  "couleur": "blanc",
+  "deplacements": Array [
+    Point {
+      "x": 0,
+      "y": 1,
+    },
+    Point {
+      "x": 0,
+      "y": 2,
+    },
+  ],
+  "nom": "Pion",
+  "nombreDeCoupJoue": 0,
+  "prises": Array [
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+    Point {
+      "x": 1,
+      "y": 1,
+    },
+  ],
+}
+`;

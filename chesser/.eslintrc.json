@@ -1,0 +1,33 @@
+{
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-use-before-define": "off",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "max-len": [
+      "error",
+      300
+    ],
+    "prefer-arrow-callback": "off",
+    "prefer-object-spread": "off",
+    "prefer-destructuring": "off",
+    "no-plusplus": "off",
+    "no-await-in-loop": "off",
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "no-console": [
+      "warn"
+    ]
+  }
+}

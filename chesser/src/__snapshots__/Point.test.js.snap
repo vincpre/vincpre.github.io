@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Point distance entre 2 points en Y de 1 case 1`] = `
+Object {
+  "x": 0,
+  "y": 1,
+}
+`;
+
+exports[`Point distance entre 2 points en Y de 2 cases 1`] = `
+Object {
+  "x": 0,
+  "y": 2,
+}
+`;
+
+exports[`Point distance entre 2 points en Y de 3 cases 1`] = `
+Object {
+  "x": 0,
+  "y": 3,
+}
+`;
+
+exports[`Point distance entre 2 points en Y de 4 cases et en x de 1 cases 1`] = `
+Object {
+  "x": 1,
+  "y": 4,
+}
+`;
